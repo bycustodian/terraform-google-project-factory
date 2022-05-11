@@ -26,18 +26,18 @@ The project has the following folders and files:
 - /output.tf: the outputs of the module
 - /readme.md: this file
 
-## Generating Documentation for Inputs and Outputs
+### Generating Documentation for Inputs and Outputs
 
 The Inputs and Outputs tables in the READMEs of the root module,
 submodules, and example modules are automatically generated based on
 the `variables` and `outputs` of the respective modules. These tables
 must be refreshed if the module interfaces are changed.
 
-### Execution
+#### Execution
 
 Run `make generate_docs` to generate new Inputs and Outputs tables.
 
-## Integration Testing
+### Integration Testing
 
 Integration tests are used to verify the behaviour of the root module,
 submodules, and example modules. Additions, changes, and fixes should
@@ -51,7 +51,7 @@ The general strategy for these tests is to verify the behaviour of the
 [example modules](./examples/), thus ensuring that the root module,
 submodules, and example modules are all functionally correct.
 
-### Test Environment
+#### Test Environment
 The easiest way to test the module is in an isolated test project. The setup for such a project is defined in [test/setup](./test/setup/) directory.
 
 To use this setup, you need a service account with Project Creator access on a folder. Export the Service Account credentials to your environment like so:
@@ -75,12 +75,12 @@ With these settings in place, you can prepare a test project using Docker:
 make docker_test_prepare
 ```
 
-### Noninteractive Execution
+#### Noninteractive Execution
 
 Run `make docker_test_integration` to test all of the example modules
 noninteractively, using the prepared test project.
 
-### Interactive Execution
+#### Interactive Execution
 
 1. Run `make docker_run` to start the testing Docker container in
    interactive mode.
@@ -95,12 +95,12 @@ noninteractively, using the prepared test project.
 1. Run `kitchen_do destroy <EXAMPLE_NAME>` to destroy the example module
    state.
 
-## Linting and Formatting
+### Linting and Formatting
 
 Many of the files in the repository can be linted or formatted to
 maintain a standard of quality.
 
-### Execution
+#### Execution
 
 Run `make docker_test_lint`.
 
